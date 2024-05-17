@@ -107,29 +107,78 @@ repos:
         require_serial: true
         types_or: [jupyter, markdown]
         additional_dependencies:
-               - mypy
-               - pandas-stubs
-               - git+https://github.com/numpy/numpy-stubs
-               - mypy-extensions
-               - types-requests
-               - types-PyYAML
-               - types-setuptools
+          - mypy
+          - pandas-stubs
+          - git+https://github.com/numpy/numpy-stubs
+          - mypy-extensions
+          - types-requests
+          - types-PyYAML
+          - types-setuptools
 
-        args: ["--ignore-missing-imports"]
+        args:
+          - --cache-dir=/dev/null
+          - --cache-dir=nul
+          - --no-incremental
+          - --explicit-package-bases
+          - --ignore-missing-imports
+          - --disallow-untyped-calls
+          - --disallow-untyped-defs
+          - --disallow-untyped-decorators
+          - --strict
+          - --extra-checks
+          - --disallow-any-unimported
+          - --disallow-any-decorated
+          - --disallow-any-explicit
+          - --disallow-any-generics
+          - --disallow-subclassing-any
+          - --local-partial-types
+          - --pretty
+          - --force-uppercase-builtins
+          - --force-union-syntax
+          - --warn-unreachable
+          - --warn-redundant-casts
+          - --warn-return-any
+
+
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.9.0
     hooks:
       - id: mypy
-        args: ["--ignore-missing-imports"]
+        args:
+          - --cache-dir=/dev/null
+          - --cache-dir=nul
+          - --no-incremental
+          - --explicit-package-bases
+          - --ignore-missing-imports
+          - --disallow-untyped-calls
+          - --disallow-untyped-defs
+          - --disallow-untyped-decorators
+          - --strict
+          - --extra-checks
+          - --disallow-any-unimported
+          - --disallow-any-decorated
+          - --disallow-any-explicit
+          - --disallow-any-generics
+          - --disallow-subclassing-any
+          - --local-partial-types
+          - --pretty
+          - --force-uppercase-builtins
+          - --force-union-syntax
+          - --warn-unreachable
+          - --warn-redundant-casts
+          - --warn-return-any
+
+
+
         additional_dependencies:
-               - mypy
-               - pandas-stubs
-               - git+https://github.com/numpy/numpy-stubs
-               - mypy-extensions
-               - types-requests
-               - types-PyYAML
-               - types-setuptools
+          - mypy
+          - pandas-stubs
+          - git+https://github.com/numpy/numpy-stubs
+          - mypy-extensions
+          - types-requests
+          - types-PyYAML
+          - types-setuptools
 
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.8.5
@@ -146,7 +195,7 @@ repos:
           [
             "--max-line-length=79",
             "--const-naming-style=any",
-            "--disable=E0401",
+            "--disable=E0401,W0104",
           ]
 
   - repo: https://github.com/pre-commit/mirrors-pylint
@@ -158,7 +207,7 @@ repos:
         language: python
         types: [python]
         args:
-          [--max-line-length=79, "--const-naming-style=any", "--disable=E0401"]
+          [--max-line-length=79, "--const-naming-style=any", "--disable=E0401,W0104"]
         additional_dependencies: [pylint]
 
   - repo: https://github.com/nbQA-dev/nbQA
