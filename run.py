@@ -44,5 +44,7 @@ def calculator_input() -> None:
                 # Здесь должна быть логика для деления
                 pass
     print("Bye!")
-    
+
+
+
 calculator_input()  # Теперь вызываем функцию без параметров
