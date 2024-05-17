@@ -1,4 +1,4 @@
-"""dzhamaldinov_part_of_code."""
+"""халтура"""
 
 
 def addition(num1: int, num2: int) -> int:
