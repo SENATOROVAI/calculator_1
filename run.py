@@ -2,6 +2,10 @@
 
 import time
 
+# import multi - эта операция подключает весь файл multi со всем содержимым
+# (подключатся все функции)
+from multi import multiplication
+
 
 def calculator_input() -> None:
     "Input."
@@ -43,8 +47,8 @@ def calculator_input() -> None:
             elif answer == 4:
                 # Здесь должна быть логика для деления
                 pass
-    print("Bye!")
 
+    print("Bye!")
 
 
 calculator_input()  # Теперь вызываем функцию без параметров
