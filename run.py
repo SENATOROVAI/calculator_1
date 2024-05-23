@@ -8,7 +8,7 @@ from multi import multiplication
 
 
 def calculator_input() -> None:
-    "Input.КОНФЛИКТ"
+    "Input.КОНФЛИКТ!"
     otwet = 1
     print("Welcome to the calculator!")
     while otwet == 1:
