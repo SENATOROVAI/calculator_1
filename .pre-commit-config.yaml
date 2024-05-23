@@ -1,4 +1,13 @@
 repos:
+  - repo: https://github.com/PyCQA/docformatter
+    rev: v1.7.5
+    hooks:
+      - id: docformatter
+        args: [
+            --in-place,
+            --wrap-descriptions=79,
+            --style=google,
+          ]
   - repo: https://github.com/asottile/add-trailing-comma
     rev: v3.1.0
     hooks:
@@ -69,7 +78,8 @@ repos:
       - id: codespell
         additional_dependencies:
           - tomli
-
+        args:
+          - --skip=*.js,*.html,*.css,*.svg",*.json,*.png,*.jpg,*.yml,*.yaml
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.8.5
     hooks:
@@ -126,11 +136,8 @@ repos:
           - --disallow-untyped-decorators
           - --strict
           - --extra-checks
-          - --disallow-any-unimported
           - --disallow-any-decorated
-          - --disallow-any-explicit
           - --disallow-any-generics
-          - --disallow-subclassing-any
           - --local-partial-types
           - --pretty
           - --force-uppercase-builtins
@@ -156,11 +163,8 @@ repos:
           - --disallow-untyped-decorators
           - --strict
           - --extra-checks
-          - --disallow-any-unimported
           - --disallow-any-decorated
-          - --disallow-any-explicit
           - --disallow-any-generics
-          - --disallow-subclassing-any
           - --local-partial-types
           - --pretty
           - --force-uppercase-builtins
@@ -195,7 +199,7 @@ repos:
           [
             "--max-line-length=79",
             "--const-naming-style=any",
-            "--disable=E0401,W0104",
+            "--disable=E0401,W0104,R0903",
           ]
 
   - repo: https://github.com/pre-commit/mirrors-pylint
@@ -207,7 +211,7 @@ repos:
         language: python
         types: [python]
         args:
-          [--max-line-length=79, "--const-naming-style=any", "--disable=E0401,W0104"]
+          [--max-line-length=79, "--const-naming-style=any", "--disable=E0401,W0104,R0903"]
         additional_dependencies: [pylint]
 
   - repo: https://github.com/nbQA-dev/nbQA
